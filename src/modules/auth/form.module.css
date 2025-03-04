@@ -1,0 +1,73 @@
+/* .Container {
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #f9f9f9;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+} */
+
+.Title {
+  display: flex;
+  font-size: 24px;
+  margin-bottom: 15px;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+}
+
+.inputField {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.Button {
+  width: 100%;
+  padding: 10px;
+  background-color: #45dcdc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.Button:hover {
+  background-color: #06e8f0;
+}
+
+.switchText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.switchLink {
+  color: #09d5e7;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.switchLink:hover {
+  text-decoration: underline;
+}
+.errorInput {
+  border: 1px solid red;
+}
+
+.errorText {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: 0.15rem;
+}

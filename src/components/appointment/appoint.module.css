@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.appoint_Card{
+    display: flex;
+  width: 50%;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+    
+}
+
+.appoint_card:hover {
+  transform: translateY(-5px);
+}
+
+.appointcard_header {
+  background-color: rgb(201, 236, 236);
+  padding: 10px;
+  font-weight: bold;
+}
+
+.appointcard_image {
+  width: 100px; /* Adjust size as needed */
+    height: 100px; /* Same as width for a perfect circle */
+    border-radius: 50%; /* Makes the shape circular */
+    object-fit: cover; /* Ensures the image fits well */
+    border: 3px solid #fff; /* Optional: adds a border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+}
+.appointcard_body {
+  
+  padding: 10px;
+}
+/* .price {
+  font-weight: bold;
+  color: #444;
+  margin: 5px 0;
+}
+
+.consult_link {
+  display: inline-block;
+  color: #00aaff;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 10px;
+}
+.consult_link:hover {
+  text-decoration: underline;
+} */
+
+.appointcard_wrapper{
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+    /* border: 1px solid black; */
+}
+.appointcard_container{
+  display: flex;
+  width: 100%;
+  height: auto;
+  gap: 0.5rem;
+  /* justify-content: center; */
+  flex-wrap: wrap;
+ 
+  padding: 1rem;
+  /* border: 1px solid black; */
+
+}
+
+.appoint_link {
+  display: inline-block;
+  color: #00aaff;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 10px;
+}
+.appoint_link:hover {
+  text-decoration: underline;
+}
