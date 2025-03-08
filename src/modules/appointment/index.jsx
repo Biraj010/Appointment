@@ -1,4 +1,4 @@
-import Photo from "../../assets/Slider Final.png"
+import Photo from "../../assets/sliderfinal.png"
 import styles from "../../assets/stylesheet.module.css"
 
 const AppointmentPage = () => {

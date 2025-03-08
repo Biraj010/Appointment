@@ -1,37 +1,37 @@
 import { useState } from "react";
-import LoginDisplay from "../../components/login/logindisplay";
+import FormModel from "../../components/login/form_model";
 import LoginForm from "../auth/login";
 import SignupForm from "../auth/signup";
 
 const LoginPage = () => {
-  const [showLoginDisplay, setLoginDisplay] = useState(false); 
-  const [isLogin, setIsLogin] = useState(true); 
+  const [showFormModel, setFormModel] = useState(false);
+  const [isLogin, setIsLogin] = useState(true);
 
-  
   const toggleAuth = () => {
     setIsLogin(!isLogin);
   };
 
-  
   const handleClose = () => {
-    setLoginDisplay(false); 
+    setFormModel(false);
+  };
+
+  const handleLoginSuccess = () => {
+    handleClose();
   };
 
   return (
     <div>
-      <button onClick={() => setLoginDisplay(true)}>Login</button>{" "}
-     
-      <LoginDisplay
-        show={showLoginDisplay}
-        onClose={handleClose} 
-      >
-        
+      {/* <button onClick={() => setFormModel(true)}>Login</button> */}
+      <FormModel show={showFormModel} onClose={handleClose}>
         {isLogin ? (
-          <LoginForm onSwitch={toggleAuth} onClose={handleClose} />
+          <LoginForm
+            onSwitch={toggleAuth}
+            onLoginSuccess={handleLoginSuccess}
+          />
         ) : (
           <SignupForm onSwitch={toggleAuth} onClose={handleClose} />
         )}
-      </LoginDisplay>
+      </FormModel>
     </div>
   );
 };

@@ -1,13 +1,25 @@
 import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom";
 import styles from "./card.module.css";
+import { useNavigate } from "react-router-dom"; 
 
-const Card = ({ title, rs, price, image, link, linkname }) => {
+const Card = ({ title, rs, price, image }) => {
   const navigate = useNavigate(); 
 
   const handleClick = (e) => {
-    e.preventDefault(); 
-    navigate(link); 
+    e.preventDefault();
+
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    console.log(localStorage.getItem("isLoggedIn"));
+
+    if (isLoggedIn === "true") {
+      
+      console.log(navigate);
+      navigate("/consultation"); 
+    } else {
+      // User is not logged in, navigate to the login page
+      console.log(navigate);
+      navigate("/login"); // Replace "/login" with your login page path
+    }
   };
 
   return (
@@ -16,10 +28,13 @@ const Card = ({ title, rs, price, image, link, linkname }) => {
       <img src={image} alt={title} className={styles.card_image} />
       <div className={styles.card_body}>
         <h4>{title}</h4>
-        <p>{rs}{price}</p>
-        <a href={link} className={styles.consult_link} onClick={handleClick}>
-          {linkname}
-        </a>
+        <p>
+          {rs}
+          {price}
+        </p>
+        <button className={styles.consult_button} onClick={handleClick}>
+          Consult
+        </button>
       </div>
     </div>
   );
@@ -28,10 +43,8 @@ const Card = ({ title, rs, price, image, link, linkname }) => {
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   rs: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  image: PropTypes.string.isRequired,
-  linkname: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired, // image prop added
 };
 
 export default Card;

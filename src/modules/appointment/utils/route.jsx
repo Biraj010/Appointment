@@ -1,9 +1,9 @@
 import { Outlet, Route } from "react-router-dom";
 import Layout from "../../../layout/layout";
-import Home from "../index"
+import Home from "../index";
 import BookAppointment from "../book_appointment";
 import Consultation from "../consulation";
-import Form from "../../../components/login/logindisplay"
+import Form from "../login_page";
 
 export const AppiontmentRoutes = (
   <Route

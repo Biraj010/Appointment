@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import styles from "./form.module.css";
 
-const SignupForm = ({ onSwitch }) => {
+const SignupForm = ({ onSwitch, onAuthSuccess }) => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -24,8 +24,8 @@ const SignupForm = ({ onSwitch }) => {
       setError("Passwords do not match");
       return;
     }
+    onAuthSuccess();
     console.log("Signup Data:", formData);
-    // Proceed with the signup process
   };
 
   return (
@@ -85,6 +85,7 @@ const SignupForm = ({ onSwitch }) => {
 
 SignupForm.propTypes = {
   onSwitch: PropTypes.func.isRequired,
+  onAuthSuccess: PropTypes.func.isRequired,
 };
 
 export default SignupForm;

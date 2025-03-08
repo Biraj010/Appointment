@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
-import styles from "./logindisplay.module.css"; 
+import styles from "./form_model.module.css"; 
 
-const LoginDisplay = ({ show, onClose, children }) => {
+const FormModel = ({ show, onClose, children }) => {
   if (!show) return null; // If modal is not shown, return nothing
 
   return (
@@ -20,10 +20,10 @@ const LoginDisplay = ({ show, onClose, children }) => {
 console.log("Form");
 
 
-LoginDisplay.propTypes = {
+FormModel.propTypes = {
   show: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired,
 };
 
-export default LoginDisplay;
+export default FormModel;

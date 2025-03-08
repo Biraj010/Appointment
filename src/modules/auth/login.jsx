@@ -1,10 +1,12 @@
-
+import  { useState } from "react";
 import PropTypes from "prop-types";
-import { useState } from "react";
 import styles from "./form.module.css";
+import { useNavigate } from "react-router-dom";
 
-const LoginForm = ({ onSwitch }) => {
+const LoginForm = ({ onSwitch, onAuthSuccess }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -12,14 +14,27 @@ const LoginForm = ({ onSwitch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Login Data:", formData);
-    alert("Logged in successfully");
+    setError(null);
+
+    if (
+      formData.email === "uniquejack.br80@gmail.com" &&
+      formData.password === "password123"
+    ) {
+      console.log("Authentication successful!");
+      localStorage.setItem("isLoggedIn", "true");
+      onAuthSuccess(); // Close the modal
+      
+      navigate("/");
+    } else {
+      setError("Invalid email or password.");
+    }
   };
 
   return (
     <div className={styles.Container}>
       <h2 className={styles.Title}>Login</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
+        <p style={{ color: "red" }}>{error}</p>
         <input
           type="email"
           name="email"
@@ -52,10 +67,9 @@ const LoginForm = ({ onSwitch }) => {
   );
 };
 
-export default LoginForm;
-
-
 LoginForm.propTypes = {
   onSwitch: PropTypes.func.isRequired,
+  onAuthSuccess: PropTypes.func.isRequired,
 };
 
+export default LoginForm;
